@@ -1,5 +1,5 @@
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -57,4 +57,10 @@ model VerificationToken {
   expires    DateTime
 
   @@id([identifier, token])
+}
+
+model Link {
+  id        String @id @default(dbgenerated("gen_random_uuid()"))
+  shortLink String
+  redirect  String
 }
