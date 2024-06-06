@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import { AuthError } from "next-auth";
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
+import Image from "next/image";
 export function SignInWithGoogle() {
   return (
     <form
@@ -33,8 +34,9 @@ export function SignInWithGoogle() {
         type="submit"
         className="btn bg-white text-black hover:bg-white/80 w-full"
       >
-        <img
+        <Image
           src="https://authjs.dev/img/providers/google.svg"
+          alt="google icon"
           loading="lazy"
           height={24}
           width={24}

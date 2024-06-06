@@ -1,5 +1,6 @@
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 
 export function SignInWithGithub() {
@@ -9,7 +10,6 @@ export function SignInWithGithub() {
         "use server";
         try {
           await signIn("github");
-          
         } catch (error) {
           if (error instanceof AuthError) {
             return redirect(`/api/auth?error=${error.type}`);
@@ -20,10 +20,11 @@ export function SignInWithGithub() {
     >
       <button
         type="submit"
-        className="btn bg-[#24292f] text-white hover:bg-[#24292f]/80 w-full"
+        className="btn w-full bg-[#24292f] text-white hover:bg-[#24292f]/80"
       >
-        <img
+        <Image
           src="https://authjs.dev/img/providers/github.svg"
+          alt="github icon"
           loading="lazy"
           height={24}
           width={24}
