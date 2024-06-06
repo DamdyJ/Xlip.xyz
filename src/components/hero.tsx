@@ -100,7 +100,7 @@ export default function Hero() {
       }
       setShowToast(true);
       navigator.clipboard.writeText(
-        `https://link-lens.vercel.app/go/${linkToCopy}`,
+        `${process.env.NEXT_PUBLIC_DOMAIN_URL}/go/${linkToCopy}`,
       );
       setTimeout(() => setShowToast(false), 2000);
     },
@@ -205,7 +205,7 @@ export default function Hero() {
           {isMagicButtonPressed && !isLoading && (
             <>
               <div className="divider">OR</div>
-              <div className="flex justify-center flex-col items-center gap-3 md:flex-row">
+              <div className="flex flex-col items-center justify-center gap-3 md:flex-row">
                 <p className="text-center text-lg font-semibold text-white">
                   Minimalist
                 </p>
@@ -216,7 +216,7 @@ export default function Hero() {
                     className="badge-white badge badge-outline p-3 font-normal"
                     onClick={() => copyToClipboard(randomString)}
                   >
-                    https://link-lens.vercel.app/go
+                    https://www.xlip.xyz/go
                     <span className="font-normal text-primary">{`/${randomString}`}</span>
                   </Link>
                 </div>
