@@ -4,21 +4,29 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Error({
-    error,
-    reset,
+  error,
+  reset,
 }: {
-    error: Error & { digest?: string };
-    reset: () => void;
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
-    useEffect(() => {
-        console.error(error);
-    }, [error]);
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
 
-    return (
-        <div className="w-full min-h-screen flex flex-col justify-between items-center">
-            <h2>Something went wrong!</h2>
-            <button onClick={() => reset()}>Try again</button>
-            <Link href="/">Go to homepage</Link>
-        </div>
-    );
+  return (
+    <div className="flex min-h-screen w-full flex-col items-center justify-center">
+      <div className="flex flex-col gap-4">
+        <h2 className="text-3xl font-semibold text-error md:text-5xl mb-4 text-center">
+          Something went wrong!
+        </h2>
+        <button className="btn btn-error" onClick={() => reset()}>
+          Try again
+        </button>
+        <Link className="btn btn-outline btn-primary" href="/">
+          Go to homepage
+        </Link>
+      </div>
+    </div>
+  );
 }
