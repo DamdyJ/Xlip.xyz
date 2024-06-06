@@ -1,7 +1,7 @@
 export default function MagicButton({ text }: { text: string }) {
   return (
     <>
-      <div className="group relative inline-flex">
+      <div className="group relative inline-flex z-10">
         <div className="transitiona-all animate-tilt absolute -inset-px rounded-xl bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] opacity-70 blur-lg duration-1000 group-hover:-inset-1 group-hover:opacity-100 group-hover:duration-200"></div>
         <button
           type="submit"
