@@ -99,9 +99,7 @@ export default function Hero() {
         });
       }
       setShowToast(true);
-      navigator.clipboard.writeText(
-        `${process.env.NEXT_PUBLIC_DOMAIN_URL!}/go/${linkToCopy}`,
-      );
+      navigator.clipboard.writeText(`https://www.xlip.xyz/go/${linkToCopy}`);
       setTimeout(() => setShowToast(false), 2000);
     },
     [suggestions, originalLink],
