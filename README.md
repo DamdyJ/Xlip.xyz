@@ -63,3 +63,9 @@ To run this project locally, follow these steps:
 Contributions are welcome! Please open an issue or submit a pull request with your improvements.
 
 ## License
+
+This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+
+---
+
+This README now reflects the Apache 2.0 license for the project.
