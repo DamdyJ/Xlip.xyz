@@ -4,7 +4,7 @@ import Hero from "@/components/hero";
 export default async function Home() {
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-4">
+    <div className="mx-auto w-full max-w-5xl px-4 py-6">
       <Hero />
       <HowTo/>
     </div>
