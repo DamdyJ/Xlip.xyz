@@ -10,8 +10,11 @@ export default function RedirectURLPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/links/${url}`);
+        const response = await fetch(
+          `https://link-lens.vercel.app/api/links/${url}`,
+        );
         const data = await response.json();
+        console.log(data)
         if (data.link && data.link.redirect) {
           const redirectTimeout = setTimeout(() => {
             console.error(
@@ -20,8 +23,7 @@ export default function RedirectURLPage() {
             router.push("/notfound");
           }, 5000);
 
-          window.location.href = data.link.redirect;
-
+          router.push(data.link.redirect);
           window.onload = function () {
             clearTimeout(redirectTimeout);
           };
