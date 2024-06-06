@@ -171,10 +171,14 @@ export default function Hero() {
               <span className="sr-only">Loading...</span>
             </div>
           )}
-          {suggestions.length > 0 && (
+          {suggestions && suggestions.length > 0 && (
             <div className="flex flex-wrap items-center justify-center gap-3 pb-4 pt-6 text-center">
               {suggestions.map((suggestion, index) => (
-                <div key={index} className="tooltip z-10" data-tip="Copy to clipboard">
+                <div
+                  key={index}
+                  className="tooltip z-10"
+                  data-tip="Copy to clipboard"
+                >
                   <Link
                     href={`/go/${suggestion}`}
                     key={index}
@@ -216,7 +220,7 @@ export default function Hero() {
             </div>
           </>
         )}
-        <MoveDown size={48} className="absolute bottom-10 text-white"/>
+        <MoveDown size={48} className="absolute bottom-10 text-white" />
       </main>
     </>
   );
