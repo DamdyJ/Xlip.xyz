@@ -17,7 +17,6 @@ export default async function GeminiAI(url: string) {
     let text = await response.text();
     text = text.replace(/```json|```/g, "");
     const json = JSON.parse(text);
-    console.log("JSON: ", json.shortUrl);
     return json.shortUrl;
   } catch (error) {
     if (error instanceof Error) {
