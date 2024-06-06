@@ -112,7 +112,7 @@ export default function Hero() {
   );
   return (
     <>
-      <main className="z-10 flex min-h-screen flex-col items-center justify-center gap-8">
+      <main className="z-10 flex min-h-screen w-full flex-col items-center justify-center gap-8">
         <div>
           <div className="flex w-full items-center justify-center">
             <div className="mb-10 block text-center md:hidden">
@@ -229,8 +229,8 @@ export default function Hero() {
           )}
         </div>
         <MoveDown size={48} className="text-white md:absolute md:bottom-10" />
+        <BackgroundBeams />
       </main>
-      <BackgroundBeams />
     </>
   );
 }
