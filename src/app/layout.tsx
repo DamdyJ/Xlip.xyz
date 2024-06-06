@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LinkLens: Insightful Link Shortener with Advanced Analytics",
+  title: "Xlip.xyz - Effortless Link Shortening",
   description:
-    "Your go-to solution for transforming long, cumbersome URLs into concise, shareable links. Powered by cutting-edge technology, our URL shortener not only streamlines your links effortlessly but also provides insightful analytics. Say goodbye to unwieldy URLs and hello to sleek and professional links with advanced analytics at your fingertips.",
+    "Welcome to Xlip.xyz,your go-to solution for transforming long, cumbersome URLs into concise, shareable links. Powered by cutting-edge technology, our URL shortener not only streamlines your links effortlessly but also provides insightful analytics. Say goodbye to unwieldy URLs and hello to sleek and professional links with advanced analytics at your fingertips.",
 };
 
 export default function RootLayout({
