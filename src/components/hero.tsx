@@ -17,6 +17,7 @@ export default function Hero() {
   const [randomString, setRandomString] = useState<string>("");
   const [isMagicButtonPressed, setIsMagicButtonPressed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [clipboardMessage, setClipboardMessage] = useState<string>();
 
   const generateRandomString = () => {
     const characters =
@@ -100,14 +101,18 @@ export default function Hero() {
         });
       }
       setShowToast(true);
-      navigator.clipboard.writeText(`https://www.xlip.xyz/go/${linkToCopy}`);
-      setTimeout(() => setShowToast(false), 2000);
+      await navigator.clipboard.writeText(
+        `https://www.xlip.xyz/go/${linkToCopy}`,
+      );
+
+      setClipboardMessage(`https://www.xlip.xyz/go/${linkToCopy}`);
+      setTimeout(() => setShowToast(false), 3000);
     },
     [suggestions, originalLink],
   );
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-center gap-8">
+      <main className="z-10 flex min-h-screen flex-col items-center justify-center gap-8">
         <div>
           <div className="flex w-full items-center justify-center">
             <div className="mb-10 block text-center md:hidden">
@@ -179,24 +184,24 @@ export default function Hero() {
                     className="tooltip z-10"
                     data-tip="Copy to clipboard"
                   >
-                    <Link
-                      href={`/go/${suggestion}`}
+                    <button
+                      // href={`/go/${suggestion}`}
                       key={index}
                       className="badge-white badge badge-outline p-3"
                       onClick={() => copyToClipboard(index)}
                     >
                       {suggestion}
-                    </Link>
+                    </button>
                   </div>
                 ))}
               </div>
             )}
           </div>
           {showToast && (
-            <div className="toast toast-center toast-top mt-20">
+            <div className="toast">
               <div className="alert alert-success flex rounded-md p-2">
                 <span className="text-sm font-semibold">
-                  Copied to clipboard
+                  {`Copied to clipboard: ${clipboardMessage}`}
                 </span>
               </div>
             </div>
@@ -209,23 +214,23 @@ export default function Hero() {
                   Minimalist
                 </p>
                 <ArrowRight size={24} className="hidden md:block" />
-                <div className="tooltip" data-tip="Copy to clipboard">
-                  <Link
-                    href={`/go/${randomString}`}
+                <div className="tooltip z-10" data-tip="Copy to clipboard">
+                  <button
+                    // href={`/go/${randomString}`}
                     className="badge-white badge badge-outline p-3 font-normal"
                     onClick={() => copyToClipboard(randomString)}
                   >
                     https://www.xlip.xyz/go
                     <span className="font-normal text-primary">{`/${randomString}`}</span>
-                  </Link>
+                  </button>
                 </div>
               </div>
             </>
           )}
         </div>
         <MoveDown size={48} className="text-white md:absolute md:bottom-10" />
-        <BackgroundBeams />
       </main>
+      <BackgroundBeams />
     </>
   );
 }
