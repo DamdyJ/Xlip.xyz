@@ -20,7 +20,7 @@ export default function QRCodeCreatePage() {
         }}
       />
       <button onClick={generate}>Generate</button>
-      <img src={src} />
+      {/* <img src={src} /> */}
     </>
   );
 }
