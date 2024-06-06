@@ -6,6 +6,7 @@ import MagicButton from "./ui/magicButton";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 import Link from "next/link";
 import { ArrowRight, MoveDown } from "lucide-react";
+import { BackgroundBeams } from "./ui/background-beams";
 
 export default function Hero() {
   const [chat, setChat] = useState<string>("");
@@ -223,6 +224,7 @@ export default function Hero() {
           )}
         </div>
         <MoveDown size={48} className="text-white md:absolute md:bottom-10" />
+        <BackgroundBeams />
       </main>
     </>
   );
