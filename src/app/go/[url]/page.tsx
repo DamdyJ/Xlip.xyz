@@ -12,9 +12,11 @@ export default function RedirectURLPage() {
       try {
         const response = await fetch(
           `https://link-lens.vercel.app/api/links/${url}`,
+          {
+            method: "GET",
+          },
         );
         const data = await response.json();
-        console.log(data)
         if (data.link && data.link.redirect) {
           const redirectTimeout = setTimeout(() => {
             console.error(
