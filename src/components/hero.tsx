@@ -100,7 +100,7 @@ export default function Hero() {
       }
       setShowToast(true);
       navigator.clipboard.writeText(
-        `${process.env.NEXT_PUBLIC_DOMAIN_URL}/go/${linkToCopy}`,
+        `${process.env.NEXT_PUBLIC_DOMAIN_URL!}/go/${linkToCopy}`,
       );
       setTimeout(() => setShowToast(false), 2000);
     },

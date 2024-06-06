@@ -11,7 +11,7 @@ export default function RedirectURLPage() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_DOMAIN_URL}/api/links/${url}`,
+          `${process.env.NEXT_PUBLIC_DOMAIN_URL!}/api/links/${url}`,
           {
             method: "GET",
           },
