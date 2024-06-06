@@ -174,7 +174,7 @@ export default function Hero() {
           {suggestions.length > 0 && (
             <div className="flex flex-wrap items-center justify-center gap-3 pb-4 pt-6 text-center">
               {suggestions.map((suggestion, index) => (
-                <div className="tooltip z-10" data-tip="Copy to clipboard">
+                <div key={index} className="tooltip z-10" data-tip="Copy to clipboard">
                   <Link
                     href={`/go/${suggestion}`}
                     key={index}
