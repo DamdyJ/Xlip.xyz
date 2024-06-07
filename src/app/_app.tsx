@@ -7,10 +7,12 @@ export default function App({
   pageProps: { session, ...pageProps },
 }: AppProps) {
   return (
-    <SessionProvider session={session} basePath="/api/auth">
-      <Component {...pageProps} />
+    <>
+      <SessionProvider session={session} basePath="/api/auth">
+        <Component {...pageProps} />
+      </SessionProvider>
       <Analytics />
       <SpeedInsights />
-    </SessionProvider>
+    </>
   );
 }
