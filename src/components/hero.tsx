@@ -106,7 +106,7 @@ export default function Hero() {
       );
 
       setClipboardMessage(`https://www.xlip.xyz/go/${linkToCopy}`);
-      setTimeout(() => setShowToast(false), 3000);
+      setTimeout(() => setShowToast(false), 2000);
     },
     [suggestions, originalLink],
   );

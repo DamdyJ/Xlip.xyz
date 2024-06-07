@@ -41,7 +41,7 @@ export default function RedirectURLPage() {
     if (url) {
       fetchData();
     }
-  }, [url]);
+  }, [url,router]);
 
   if (loading) {
     return (

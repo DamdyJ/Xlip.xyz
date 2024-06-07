@@ -42,7 +42,7 @@ export const TypewriterEffect = ({
         },
       );
     }
-  }, [isInView]);
+  }, [isInView, animate]);
 
   const renderWords = () => {
     return (
@@ -178,7 +178,7 @@ export const TypewriterEffectSmooth = ({
           repeatType: "reverse",
         }}
         className={cn(
-          "rounded-sm bg-primary h-[calc(100%-8px)] w-1",
+          "h-[calc(100%-8px)] w-1 rounded-sm bg-primary",
           cursorClassName,
         )}
       ></motion.span>
