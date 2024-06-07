@@ -143,6 +143,7 @@ export default function Hero() {
                   <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#44BCFF_0%,#FF44EC_50%,#FF675E_75%,#44BCFF_100%)]" />
                   <input
                     id="ai suggestion"
+                    required
                     type="text"
                     value={chat}
                     placeholder="Enter Your Long Link Here..."
@@ -151,7 +152,7 @@ export default function Hero() {
                     autoComplete="off"
                   />
                 </div>
-                <MagicButton text="Generate Links" />
+                <MagicButton text="Generate Links" isLoading={isLoading} />
               </form>
             </div>
             {error && <p style={{ color: "red" }}>{error}</p>}
