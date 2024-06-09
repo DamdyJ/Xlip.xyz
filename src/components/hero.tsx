@@ -154,7 +154,7 @@ export default function Hero() {
                 <MagicButton text="Generate Links" isLoading={isLoading} />
               </form>
             </div>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className="font-medium text-error text-center my-4">{error}</p>}
             {isLoading && (
               <div role="status">
                 <svg
