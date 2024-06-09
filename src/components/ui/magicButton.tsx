@@ -18,7 +18,18 @@ export default function MagicButton({
           <span
             className={`inline-flex h-full w-full ${isLoading ? "cursor-loading bg-slate-600" : "cursor-pointer bg-slate-950"} items-center justify-center rounded-full px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl`}
           >
-            {isLoading ? "Loading..." : text}
+            {isLoading ? (
+              <>
+                <div className="flex items-end gap-1">
+                  <h1 className="font-semibold">
+                    Loading
+                  </h1>
+                  <span className="loading loading-dots loading-xs"></span>
+                </div>
+              </>
+            ) : (
+              text
+            )}
           </span>
         </button>
       </div>
