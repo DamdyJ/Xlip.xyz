@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleTagManager } from "@next/third-parties/google";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -44,7 +44,6 @@ export default function RootLayout({
           content="https://www.xlip.xyz/og-image.png"
         />
       </head>
-      <GoogleTagManager gtmId="G-DQ3HZK6V4G" />
       <body className={inter.className}>
         {children}
         <Analytics />
