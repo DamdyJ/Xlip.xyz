@@ -4,7 +4,6 @@ import { useState, useCallback, FormEvent } from "react";
 import GeminiAI from "@/utils/gemini";
 import MagicButton from "./ui/magicButton";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
-import Link from "next/link";
 import { ArrowRight, MoveDown } from "lucide-react";
 import { BackgroundBeams } from "./ui/background-beams";
 
@@ -80,36 +79,36 @@ export default function Hero() {
     },
     [chat],
   );
+
   const copyToClipboard = useCallback(
     async (value: number | string) => {
       let linkToCopy;
       if (typeof value === "number") {
         linkToCopy = suggestions[value];
-        await fetch(`/api/links/${linkToCopy}`, {
-          method: "POST",
-          body: JSON.stringify({
-            redirect: originalLink,
-          }),
-        });
       } else {
         linkToCopy = value;
-        await fetch(`/api/links/${linkToCopy}`, {
-          method: "POST",
-          body: JSON.stringify({
-            redirect: originalLink,
-          }),
-        });
       }
-      setShowToast(true);
-      await navigator.clipboard.writeText(
-        `https://www.xlip.xyz/go/${linkToCopy}`,
-      );
 
-      setClipboardMessage(`https://www.xlip.xyz/go/${linkToCopy}`);
+      // Copy to clipboard immediately
+      const link = `https://www.xlip.xyz/go/${linkToCopy}`;
+      await navigator.clipboard.writeText(link);
+      setClipboardMessage(link);
+      setShowToast(true);
       setTimeout(() => setShowToast(false), 2000);
+
+      // Make the API call in the background
+      fetch(`/api/links/${linkToCopy}`, {
+        method: "POST",
+        body: JSON.stringify({
+          redirect: originalLink,
+        }),
+      }).catch((error) => {
+        console.error(`[API Error]: ${error}`);
+      });
     },
     [suggestions, originalLink],
   );
+
   return (
     <>
       <main className="z-10 flex min-h-screen w-full flex-col items-center justify-center gap-8">
@@ -186,7 +185,6 @@ export default function Hero() {
                     data-tip="Copy to clipboard"
                   >
                     <button
-                      // href={`/go/${suggestion}`}
                       key={index}
                       className="badge-white badge badge-outline p-3"
                       onClick={() => copyToClipboard(index)}
@@ -217,7 +215,6 @@ export default function Hero() {
                 <ArrowRight size={24} className="hidden md:block" />
                 <div className="tooltip z-10" data-tip="Copy to clipboard">
                   <button
-                    // href={`/go/${randomString}`}
                     className="badge-white badge badge-outline p-3 font-normal"
                     onClick={() => copyToClipboard(randomString)}
                   >
