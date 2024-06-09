@@ -41,19 +41,25 @@ export default function RedirectURLPage() {
     if (url) {
       fetchData();
     }
-  }, [url,router]);
+  }, [url, router]);
 
   if (loading) {
     return (
       <div className="flex min-h-screen w-full items-center justify-center">
-        <h1 className="text-3xl font-semibold md:text-5xl">Loading...</h1>
+        <div className="flex items-end gap-1">
+          <h1 className="text-3xl font-semibold md:text-5xl">Loading</h1>
+          <span className="loading loading-dots loading-lg"></span>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="flex min-h-screen w-full items-center justify-center">
-      <h1 className="text-3xl font-semibold md:text-5xl">Redirecting...</h1>
+      <div className="flex items-end gap-1">
+        <h1 className="text-3xl font-semibold md:text-5xl">Redirecting</h1>
+        <span className="loading loading-dots loading-lg"></span>
+      </div>
     </div>
   );
 }
