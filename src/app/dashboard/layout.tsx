@@ -15,10 +15,10 @@ export default function DashboardLayout({
         {/* top-bottom layout */}
         <div className="divide-base-content/20 flex min-h-screen w-full flex-col divide-y">
           {/* top navbar */}
-          <nav className="flex w-full justify-end p-3 bg-base-100">
+          <nav className="flex w-full max-h-16 justify-end p-3 bg-base-100">
             <ul className="flex items-center gap-3">
               <li>
-                <label className="input input-bordered input-primary flex items-center gap-2">
+                <label className="input input-bordered h-fit py-2 input-primary flex items-center gap-2">
                   <input
                     type="text"
                     className="min-w-80 grow"
@@ -28,8 +28,8 @@ export default function DashboardLayout({
                 </label>
               </li>
               <li>
-                <div className="bg-secondary flex h-12 w-12 items-center justify-center overflow-hidden rounded-full">
-                  <span>Avatar</span>
+                <div className="bg-secondary flex h-10 w-10 items-center justify-center overflow-hidden rounded-full">
+                  <span>DJ</span>
                 </div>
               </li>
             </ul>
