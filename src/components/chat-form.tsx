@@ -4,6 +4,7 @@ import { useState, useCallback, FormEvent } from "react";
 import GeminiAI from "@/utils/gemini";
 import MagicButton from "@/components/ui/magicButton";
 import { ArrowRight } from "lucide-react";
+import { z } from "zod";
 
 export default function ChatForm() {
   const [chat, setChat] = useState<string>("");
@@ -15,6 +16,7 @@ export default function ChatForm() {
   const [isMagicButtonPressed, setIsMagicButtonPressed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [clipboardMessage, setClipboardMessage] = useState<string>();
+  const urlSchema = z.string().url();
 
   const generateRandomString = () => {
     const characters =
@@ -35,6 +37,7 @@ export default function ChatForm() {
       setIsLoading(true);
       try {
         if (!chat) return;
+        urlSchema.parse(chat);
         setOriginalLink(chat);
         await GeminiAI(chat);
         const result = await GeminiAI(chat);
@@ -46,7 +49,9 @@ export default function ChatForm() {
         await fetch("/api/count", { method: "PUT" });
       } catch (error) {
         setIsLoading(false);
-        if (error instanceof Error) {
+        if (error instanceof z.ZodError) {
+          setError("Invalid URL. Please enter a valid URL.");
+        } else if (error instanceof Error) {
           setError(error.message);
         } else {
           console.error(`[Unknown Error]: ${error}`);
