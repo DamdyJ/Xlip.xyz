@@ -4,7 +4,6 @@ import { useState, useCallback, FormEvent } from "react";
 import GeminiAI from "@/utils/gemini";
 import MagicButton from "@/components/ui/magicButton";
 import { ArrowRight } from "lucide-react";
-import { incrementCount, getCount } from "@/lib/action";
 
 export default function ChatForm() {
   const [chat, setChat] = useState<string>("");
@@ -44,7 +43,7 @@ export default function ChatForm() {
         setChat("");
         setIsMagicButtonPressed(true);
         setIsLoading(false);
-        await incrementCount();
+        await fetch("/api/count", { method: "PUT" });
       } catch (error) {
         setIsLoading(false);
         if (error instanceof Error) {
