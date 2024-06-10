@@ -34,7 +34,7 @@ export default function QRCodeGenerator() {
 
   return (
     <>
-      <section className="">
+      <section className="my-20">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-end gap-3">
             <div>
