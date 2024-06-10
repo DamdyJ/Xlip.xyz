@@ -64,3 +64,8 @@ model Link {
   shortLink String
   redirect  String
 }
+
+model LinkCount {
+  id    Int    @id @default(1)
+  count Int    @default(0)
+}
