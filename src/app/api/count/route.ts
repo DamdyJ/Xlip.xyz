@@ -14,15 +14,12 @@ export async function GET(req: NextRequest) {
   }
 }
 
-export async function PUT(
-  req: NextRequest,
-) {
+export async function PUT(req: NextRequest) {
   try {
-      const count = await prisma.linkCount.update({
-        where: { id: 1 },
-        data: { count: { increment: 1 } },
-      });
-      console.log('post count : ',count)
+    const count = await prisma.linkCount.update({
+      where: { id: 1 },
+      data: { count: { increment: 1 } },
+    });
     return NextResponse.json({ count }, { status: 201 });
   } catch (error) {
     console.error(error);
@@ -34,7 +31,6 @@ export async function POST(req: NextRequest) {
     const count = await prisma.linkCount.create({
       data: { id: 1, count: 0 },
     });
-    console.log("post count : ", count);
     return NextResponse.json({ count }, { status: 201 });
   } catch (error) {
     console.error(error);
