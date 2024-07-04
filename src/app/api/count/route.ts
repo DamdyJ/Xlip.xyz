@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
     const count = await prisma.linkCount.findFirst({
       where: { id: 1 },
     });
-    console.log({ count });
+    // console.log({ count });
     return NextResponse.json({ count }, { status: 200 });
   } catch (error) {
     console.error(error);
