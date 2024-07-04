@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
         <div className="hidden space-x-4 md:flex">
           <Link
-            href="#"
+            href="#try-it-out"
             className="rounded bg-[#823CB4] px-4 py-3 text-center font-semibold hover:bg-[#823CB4]/90"
           >
             Try it out
