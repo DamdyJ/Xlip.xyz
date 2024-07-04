@@ -3,8 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { cn } from "@/lib/utils";
+import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Xlip | Effortless Link Shortener",
@@ -18,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="night">
+    <html lang="en" className="scroll-smooth dark">
       <head>
         <meta property="og:url" content="https://www.xlip.xyz/" />
         <meta property="og:type" content="website" />
@@ -44,8 +46,9 @@ export default function RootLayout({
           content="https://www.xlip.xyz/og-image.png"
         />
       </head>
-      <body className={inter.className}>
-        {children}
+      <body className={cn(`bg-[#060208] antialiased dark`, inter.className)}>
+        <Providers>{children}</Providers>
+        <Toaster />
         <Analytics />
         <SpeedInsights />
       </body>
