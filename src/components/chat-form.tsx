@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, FormEvent } from "react";
-import GeminiAI from "@/utils/gemini";
+import GeminiAI from "@/lib/gemini";
 import MagicButton from "@/components/ui/magicButton";
 import { ArrowRight } from "lucide-react";
 import { z } from "zod";
@@ -58,7 +58,7 @@ export default function ChatForm() {
         }
       }
     },
-    [chat],
+    [chat, urlSchema],
   );
 
   const copyToClipboard = useCallback(
@@ -113,7 +113,7 @@ export default function ChatForm() {
         </form>
       </div>
       {error && (
-        <p className="my-4 text-center font-medium text-error">{error}</p>
+        <p className="text-error my-4 text-center font-medium">{error}</p>
       )}
       {isLoading && (
         <div role="status">
