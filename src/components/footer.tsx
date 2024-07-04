@@ -35,7 +35,7 @@ export default function Footer() {
             <h5 className="text-white/50">LET&apos;S CONNECT</h5>
             <ul className="space-y-4">
               <li>
-                <Link href="/contact-me">Contact me</Link>
+                <Link href="/">Contact me</Link>
               </li>
               <li>
                 <Link
