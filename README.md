@@ -5,6 +5,9 @@ Here's an updated and cleaned-up version of your `README.md` file for the xlip.x
 ![thumbnail](https://github.com/DamdyJ/Xlip.xyz/assets/152348339/d5e3b367-65b5-4592-add2-26f171528eac)
 
 **xlip.xyz** is a simple and efficient URL shortener website that allows you to easily create short links by copying and pasting your long URLs. It features an AI-powered name suggestion tool and a minimalist random 4-character generator for your shortened links.
+<div align="center">
+    <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FDamdyJ%2FXlip.xyz&countColor=%23263759"/>
+</div>
 
 ## Features
 
